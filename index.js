@@ -4,7 +4,7 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-08 18:57:34
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-08 23:19:44
+ * @LastEditTime: 2020-05-09 01:04:55
  */
 const Koa = require('koa');
 const R = require('ramda');
@@ -12,7 +12,7 @@ const R = require('ramda');
 const { resolve } = require('path');
 const r = path => resolve(__dirname, path);
 
-const MIDDLEWARES = ['logger', 'common', 'router'];
+const MIDDLEWARES = ['logger', 'database', 'common', 'router'];
 
 const useMiddleWares = app => {
   return R.map(R.compose(

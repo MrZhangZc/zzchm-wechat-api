@@ -5,7 +5,8 @@
   "main": "/bin/www",
   "standard": {
     "globals": [
-      "__ilogger"
+      "__ilogger",
+      "__mlogger"
     ]
   },
   "scripts": {
@@ -36,6 +37,7 @@
     "koa-body": "^4.1.1",
     "koa-log4": "^2.3.2",
     "koa-router": "^7.4.0",
+    "mongoose": "^5.9.12",
     "promise-mysql": "^3.2.1",
     "ramda": "^0.26.1",
     "sha1": "^1.1.1"
