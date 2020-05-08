@@ -37,7 +37,8 @@
     "koa-log4": "^2.3.2",
     "koa-router": "^7.4.0",
     "promise-mysql": "^3.2.1",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "sha1": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
