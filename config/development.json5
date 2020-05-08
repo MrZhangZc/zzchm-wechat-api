@@ -1,0 +1,40 @@
+{
+  port: 4396,
+  log4: {
+    config: {
+      appenders: {
+        console: {
+          type: "console",
+        },
+      },
+      categories: {
+        default: {
+          appenders: ["console"],
+          level: "info",
+        },
+        http: {
+          appenders: ["console"],
+          level: "info",
+        },
+        info: {
+          appenders: ["console"],
+          level: "info",
+        },
+        redis: {
+          appenders: ["console"],
+          level: "info",
+        },
+        mysql: {
+          appenders: ["console"],
+          level: "info",
+        },
+        task: {
+          appenders: ["console"],
+          level: "info",
+        },
+      },
+      pm2: true,
+    },
+    format: ':remote-addr :method :url :status :content-length :response-time ms ":user-agent"',
+  },
+}

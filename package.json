@@ -1,0 +1,50 @@
+{
+  "name": "zzchm-wechat-api",
+  "version": "0.0.1",
+  "description": "wechat api koa",
+  "main": "/bin/www",
+  "standard": {
+    "globals": [
+      "__ilogger"
+    ]
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node bin/www",
+    "prod": "cross-env NODE_ENV=production node bin/www",
+    "test": "cross-env NODE_ENV=development mocha",
+    "coverage": "nyc --reporter=html npm run test",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "pm2-dev": "pm2 start up.yml --only zzchm-wechat-api-test",
+    "pm2-prod": "pm2 start up.yml --only zzchm-wechat-api",
+    "pm2-docker-dev": "pm2-runtime start up.yml --only zzchm-wechat-api-test",
+    "pm2-docker-prod": "pm2-runtime start up.yml --only zzchm-wechat-api",
+    "build": "docker build -t zzchm-wechat-api:latest ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrZhangZc/zzchm-wechat-api.git"
+  },
+  "author": "zzc",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "config": "^3.2.4",
+    "fecha": "^3.0.3",
+    "glob": "^7.1.6",
+    "ioredis": "^4.14.1",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-log4": "^2.3.2",
+    "koa-router": "^7.4.0",
+    "promise-mysql": "^3.2.1",
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^6.0.3",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0",
+    "standard": "^14.3.1",
+    "supertest": "^4.0.2"
+  }
+}
