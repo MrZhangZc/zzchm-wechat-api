@@ -3,12 +3,15 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-09 00:06:05
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-09 00:35:02
+ * @LastEditTime: 2020-05-09 02:55:51
  */
 const config = require('config');
 const sha1 = require('sha1');
 const router = require('koa-router')();
+
 router.get('/wechat-hear', async ctx => {
+  require('../wechat');
+
   const token = config.get('wechat.token');
   const {
     signature,
