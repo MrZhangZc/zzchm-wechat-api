@@ -3,7 +3,7 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-09 09:59:12
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-09 14:41:01
+ * @LastEditTime: 2020-05-10 08:47:49
  */
 const sha1 = require('sha1');
 const wechatUtil = require('../util').wechatUtil;
@@ -51,9 +51,6 @@ const getRowBody = require('raw-body');
         const msg = ctx.weixin;
         const xml = wechatUtil.tpl(replyBody, msg);
 
-        console.log({xml});
-
-        console.log({replyBody})
         ctx.status = 200;
         ctx.type = 'application/xml';
         ctx.body = xml
