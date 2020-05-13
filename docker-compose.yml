@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  zzchm-wechat-api:
+    container_name: zzchm-wechat-api
+    image: zzchm-wechat-api
+    ports:
+    - 4396:4396
+    depends_on:
+    - mongo-wechat
+    links:
+    - mongo-wechat
+  mongo-wechat:
+    container_name: mongo-wechat
+    image: mongo
+    ports:
+    - 27031:27017

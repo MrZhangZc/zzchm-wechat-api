@@ -15,11 +15,11 @@
     "test": "cross-env NODE_ENV=development mocha",
     "coverage": "nyc --reporter=html npm run test",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "pm2-dev": "pm2 start up.yml --only zzchm-wechat-api-test",
-    "pm2-prod": "pm2 start up.yml --only zzchm-wechat-api",
-    "pm2-docker-dev": "pm2-runtime start up.yml --only zzchm-wechat-api-test",
-    "pm2-docker-prod": "pm2-runtime start up.yml --only zzchm-wechat-api",
-    "build": "docker build -t zzchm-wechat-api:latest ."
+    "pm2-dev": "pm2 start up.yml --only zzchm-wechat-api-test",
+    "pm2-prod": "pm2 start up.yml --only zzchm-wechat-api",
+    "pm2-docker-dev": "pm2-runtime start up.yml --only zzchm-wechat-api-test",
+    "pm2-docker-prod": "pm2-runtime start up.yml --only zzchm-wechat-api",
+    "build": "docker build -t zzchm-wechat-api:latest ."
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.1",
+    "cheerio": "^1.0.0-rc.3",
     "config": "^3.2.4",
     "ejs": "^3.1.2",
     "fecha": "^3.0.3",

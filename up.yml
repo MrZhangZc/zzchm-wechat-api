@@ -1,17 +1,17 @@
 apps:
-  - name: zzchm-wechat-api-test
-    script: ./bin/www
-    instances: 1
-    exec_mode: fork
-    max_memory_restart: 1080M
-    watch: false
-    env: 
-      NODE_ENV: development
-  - name: zzchm-wechat-api
-    script: ./bin/www
-    instances: 1
-    exec_mode: fork
-    max_memory_restart: 1080M
-    watch: false
-    env: 
-      NODE_ENV: production
+  - name: zzchm-wechat-api-test
+    script: ./bin/www
+    instances: 1
+    exec_mode: fork
+    max_memory_restart: 1080M
+    watch: false
+    env:
+      NODE_ENV: development
+  - name: zzchm-wechat-api
+    script: ./bin/www
+    instances: 1
+    exec_mode: fork
+    max_memory_restart: 1080M
+    watch: false
+    env:
+      NODE_ENV: production
