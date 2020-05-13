@@ -1,11 +1,11 @@
 /*
- * @Descripttion: 
+ * @Descripttion:
  * @Author: zhangzhichao
  * @Date: 2020-05-09 11:49:56
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-09 14:20:06
+ * @LastEditTime: 2020-05-13 15:19:27
  */
-const ejs = require('ejs');
+const ejs = require("ejs");
 const tpl = `
   <xml>
     <ToUserName><![CDATA[<%= toUserName %>]]></ToUserName>
@@ -39,19 +39,19 @@ const tpl = `
     <% } else if (msgType === 'news') { %>
       <ArticleCount><%= content.length %></ArticleCount>
       <Articles>
-        <% content.forEach(function(item) { %>
-          <item>
-            <Title><![CDATA[<%= item.title %>]]></Title> 
-            <Description><![CDATA[<%= item.description %>]]></Description>
-            <PicUrl><![CDATA[<%= item.picUrl %>]]></PicUrl>
-            <Url><![CDATA[<%= item.url %>]]></Url>
-          </item>
-        <% }) %>
+      <% content.forEach(function(item) { %>
+        <item>
+          <Title><![CDATA[<%= item.title %>]]></Title>
+          <Description><![CDATA[<%= item.description %>]]></Description>
+          <PicUrl><![CDATA[<%= item.picUrl %>]]></PicUrl>
+          <Url><![CDATA[<%= item.url %>]]></Url>
+        </item>
+      <% }) %>
       </Articles>
     <% } %>
   </xml>
-`
+`;
 
-const compiled = ejs.compile(tpl)
+const compiled = ejs.compile(tpl);
 
 module.exports = compiled;

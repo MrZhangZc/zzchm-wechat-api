@@ -3,9 +3,10 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-09 10:30:01
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-09 15:01:13
+ * @LastEditTime: 2020-05-13 16:01:06
  */
-
+ const mongoose = require('mongoose');
+ const Heros = mongoose.model('Hero');
  const tip = '欢迎来到zzchm\n' + '点击<a href="http:\\blog.lihailezzc.com">zzchm</a>'
  module.exports = async (ctx, next) => {
    const message = ctx.weixin;
@@ -17,11 +18,23 @@
       } else if (message.Event === 'unsubscribe') {
         console.log('去关了', message.FromUserName);
       } else if (message.Event === 'LOCATION') {
-        console.log('23213123')
         ctx.body = message.Latitude + message.Longitude + message.Precision;
       }
    } else if (message.MsgType === 'text') {
-      ctx.body = message.Content;
+      const hero = await Heros.findOne({
+        alias: message.Content
+      });
+      console.log(hero);
+      if (hero) {
+        ctx.body = [{
+          title: `${hero.name}  背景故事`,
+          description: 'hm睡前小故事',
+          picUrl: hero.img,
+          url: `http://story.lihailezzc.com/#/hero/${hero.heroId}`
+        }]
+      } else {
+        ctx.body = message.Content;
+      }
    } else if (message.MsgType === 'image') {
       ctx.body = {
         type: 'image',

@@ -3,7 +3,7 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-09 10:20:04
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-09 14:25:26
+ * @LastEditTime: 2020-05-13 15:32:06
  */
 
 const xml2js = require('xml2js');
@@ -55,7 +55,6 @@ const formatMesage = result => {
 
 const tpl = (content, message) => {
   let type = 'text';
-
   if(Array.isArray(content)) {
     type = 'news';
   }
@@ -71,7 +70,7 @@ const tpl = (content, message) => {
   let info = Object.assign({}, {
     content: content,
     createTime: new Date().getTime(),
-    msgType: content.type || 'text',
+    msgType: type || 'text',
     toUserName: message.FromUserName,
     fromUserName: message.ToUserName
   })
