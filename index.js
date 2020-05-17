@@ -4,7 +4,7 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-08 18:57:34
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-09 01:04:55
+ * @LastEditTime: 2020-05-17 12:15:27
  */
 const Koa = require('koa');
 const R = require('ramda');
@@ -24,5 +24,17 @@ const useMiddleWares = app => {
 
 const app = new Koa();
 useMiddleWares(app)(MIDDLEWARES);
+
+const menu = require('./app/wechat/menu');
+const wechat = require('./app/wechat');
+let client = wechat.getWechat()
+
+async function createMenu() {
+  await client.handle('delMenu');
+  const menuresult = await client.handle('createMenu', menu);
+  console.log({menuresult})
+}
+
+createMenu();
 
 module.exports = app;

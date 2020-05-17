@@ -14,4 +14,4 @@ COPY app/ /app/app
 COPY bin/ /app/bin
 COPY config/ /app/config
 
-CMD [ "npm", "run", "pm2-docker-dev" ]
+CMD [ "npm", "run", "pm2-docker-prod" ]

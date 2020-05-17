@@ -3,7 +3,7 @@
  * @Author: zhangzhichao
  * @Date: 2020-05-09 01:40:23
  * @LastEditors: zhangzhichao
- * @LastEditTime: 2020-05-10 08:47:42
+ * @LastEditTime: 2020-05-17 12:22:45
  */
 const request = require('request-promise');
 
@@ -69,7 +69,6 @@ class Wechat {
 
   async request (options) {
     options = Object.assign({}, options, {json: true});
-    console.log({options})
     try {
       const reponse = await request(options);
       return reponse;
@@ -111,6 +110,48 @@ class Wechat {
     const now = (new Date().getTime());
 
     return now < expiresIn;
+  }
+
+  async handle (operation, ...args) {
+    const tokenData = await this.fetchAccessToken()
+    const options = this[operation](tokenData.access_token, ...args)
+    const data = await this.request(options)
+
+    return data
+  }
+
+  createMenu (token, menu) {
+    const url = api.menu.create + 'access_token=' + token;
+
+    return {
+      method: 'POST',
+      url,
+      body: menu
+    };
+  }
+
+  getMenu (token) {
+    const url = api.menu.get + 'access_token=' + token;
+
+    return {
+      url
+    };
+  }
+
+  delMenu (token) {
+    const url = api.menu.del + 'access_token=' + token;
+
+    return {
+      url
+    };
+  }
+
+  getCurrentMenuInfo (token) {
+    const url = api.menu.getInfo + 'access_token=' + token;
+
+    return {
+      url
+    };
   }
 }
 
